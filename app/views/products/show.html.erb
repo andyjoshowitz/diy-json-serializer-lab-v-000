@@ -1,11 +1,9 @@
-<h1> Here is this product </h1>
 
-<div class="productName">Name: <%= @product.name %></div>
-<a href="#" class="js-next" data-id="<%= @product.id %>">Next Product</a>
-<p class="productPrice">Price: <%= @product.price %></p>
-<p class="productInventory">Inventory: <%= @product.inventory %></p>
-<p class="productDescription">Description: <%= @product.description %></p>
-
+<a href="#" class="js-next" data-id="<%=@product.id%>">Next Product</a>
+<h1 class="productName"><%= @product.name %></h1>
+<p class="productInventory"><%= @product.inventory %></p>
+<p class="productPrice"><%= @product.price %></p>
+<p class="productDescription"><%= @product.description %></p>
 
 <script type="text/javascript" charset="utf-8">
 $(function () {
@@ -14,8 +12,8 @@ $(function () {
     $.getJSON("/products/" + nextId + "/data", function(data) {
       $(".productName").text(data["name"]);
       $(".productPrice").text(data["price"]);
-      $(".productInventory").text(data["inventory"]);
       $(".productDescription").text(data["description"]);
+      $(".productInventory").text(data["inventory"]);
       $(".js-next").attr("data-id", data["id"]);
     });
   });
